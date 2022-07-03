@@ -1,0 +1,24 @@
+<!--詳細画面-->
+<!--Book was successfully created.が表示されなくする。-->
+<!--%= flash[:notice] %だけでも表示される、丁寧に書いてるVer.-->
+<% if flash[:notice] %>
+<p id = 'notice'>
+    <%= flash[:notice] %>
+</p>
+<% end %>
+<!--編集後にサクセスメッセージが表示される,簡略化Ver.-->
+<%= flash[:update] %>
+
+
+<p>Title:</p>
+<p><%= @book.title %></p>
+
+
+<p>Body:</p>
+<p><%= @book.body %></p>
+
+<!--pathは(:id)じゃなくて飛びたいとこの変数を入れる-->
+<%= link_to 'Edit', edit_book_path(@book) %>
+|
+<!--bookの前にindexいらない、パス(:id)無いから書かない-->
+<%= link_to 'Back', books_path %>
